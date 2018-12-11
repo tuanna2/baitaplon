@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="display.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="chatAll.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="hleft">
+                <div class="dropdown">
+                    <span>CHAT >></span>
+                    <div class="dropdown-content">
+                        <a class="link-chat" href="/1">Chat riêng</a>
+                        <a class="link-chat" href="/2">Chat nhóm</a>
+                        <a class="link-chat" href="#m">Chat cộng đồng</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hright">
+                <a href="/login"><span>ĐĂNG NHẬP</span></a>
+                <a href="/register"><span>ĐĂNG KÝ</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <ul id="messages">
+            <li class="welcome">
+                <span id="wc-left">Chào mừng đến với web chat</span>
+                <span id="wc-right"></span>
+            </li>
+        </ul>
+        <form id="chatbox">
+            <input placeholder="Type here..." maxlength="50" id="m" autocomplete="off"/>
+            <button type="submit" class="send">Gửi</button>
+        </form>
+    </div>
+</body>
+</html>
