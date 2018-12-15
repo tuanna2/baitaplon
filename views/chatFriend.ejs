@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trang chủ</title>
+    <title>Kênh chat riêng</title>
     <link rel="stylesheet" href="css/display.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/chatAll.js"></script>
+    <script src="scripts/chatFriend.js"></script>
 </head>
 <body>
     <input id="name" type="hidden" value='<%-name%>'>
@@ -20,21 +20,22 @@
                     <div class="dropdown-content">
                         <a class="link-chat" href="/friend">Chat riêng</a>
                         <a class="link-chat" href="/group">Chat nhóm</a>
-                        <a class="link-chat" href="#m">Chat chung</a>
+                        <a class="link-chat" href="/">Chat chung</a>
                     </div>
                 </div>
             </div>
             <div class="hright">
-                <a href="/login"><span>ĐĂNG NHẬP</span></a>
-                <a href="/register"><span>ĐĂNG KÝ</span></a>
+                <span id="user"><%-name%></span> <a href="/logout"><span>(Đăng xuất)</span></a>
             </div>
         </div>
     </div>
     <div class="main">
         <ul id="messages">
             <li class="welcome">
-                <span id="wc-left">KÊNH CHAT CHUNG</span>
-                <span id="wc-right"></span>
+                <span id="wc-left">Nhập tên người bạn muốn chat:</span>
+                <input id="friend" type="text" class="input">
+                <button id="btn-chat">Chat</button>
+                <button id="change-fr" style='display:none'>Đổi người nhận</button>
             </li>
         </ul>
         <form id="chatbox">

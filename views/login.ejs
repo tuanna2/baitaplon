@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Đăng nhập</title>
-    <link rel ="stylesheet" href="display.css">
+    <link rel ="stylesheet" href="css/display.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -17,9 +17,9 @@
                     <p style="color:red">Sai tài khoản hoặc mật khẩu</p>                
                 <%}%>
                 <form method="POST" action="login" style="margin-top: 36px;">
-                    <input class="input" name="Username" type="text" placeholder="Tài khoản">
+                    <input class="input" size="25" name="Username" autocomplete="off"  type="text" placeholder="Tài khoản">
                     <br>
-                    <input class="input" name="Password" type="password" placeholder="Mật khẩu">
+                    <input class="input" size="25" name="Password" type="password" autocomplete="off"  placeholder="Mật khẩu">
                     <br>
                     <button type="submit" id="button">Đăng nhập</button>
                 </form>

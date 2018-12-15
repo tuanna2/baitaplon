@@ -2,24 +2,36 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const session = require('express-session');
-const iosk = require('socket.io')(http);
+const io = require('socket.io')(http);
+const bodyParser =require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+
 const SocketManager = require('./socket/socketManager');
-const routes = require('./routes/user');
+const controllerUser = require("./controllers/ControllerUser");
+const controllerChat = require('./controllers/ControllerChat');
 
 app.use(session({
-    secret: 'mabimat',
+    secret: 'abcxyz',
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge:1000*60*60*24 }
 })); 
-
-const io = iosk.of('/all');
-new SocketManager(io);
-
-http.listen(3000);
-
 app.use(express.static("views/dist"));
 app.set("view engine","ejs"); 
 app.set("views","./views"); 
 
-app.use(routes);
+new SocketManager(io);
+
+http.listen(process.env.post || 3000);
+
+app.get('/',controllerChat.All);
+app.get('/friend',controllerChat.Friend);
+app.get('/group',controllerChat.Group);
+
+app.get('/login',controllerUser.login_get);
+app.post('/login',controllerUser.login_post)
+
+app.get('/register',controllerUser.register_get);
+app.post('/register',controllerUser.register_post);
+
+app.get('/logout',controllerUser.logout);

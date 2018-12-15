@@ -19,8 +19,10 @@ body{
     border-radius: 2px;
 }
 .input{
-    padding: 6px 38px 6px 10px;
     margin-bottom: 10px;
+    padding: 5px 10px 10px 10px;
+    font-size: 15px;
+    outline: none;
 }
 #button{
     padding: 10px 30px;
@@ -103,7 +105,7 @@ body{
     border:1px solid black;
     overflow-y: auto;}
 #messages li {
-    padding: 5px 10px;
+    padding: 10px 10px;
 }
 #messages li:nth-child(odd) {
     background: #eee;
@@ -116,6 +118,7 @@ body{
     padding: 7px 25px 15px 10px;
     font-size: 20px;
     width: 80%;
+    outline:none;
 }
 .send{
     width: 14%;
@@ -134,8 +137,43 @@ body{
     float:right;
 }
 .welcome{
-    
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: rgba(62, 56, 76, 0.38) !important
 }
 #register{
     margin-top: 36px;
+}
+#user:hover{
+    color:white;
+}
+#friend{
+    padding: 5px 5px 5px 10px;
+}
+#group{
+    padding: 5px 5px 5px 10px;
+}
+#join-group{
+    padding: 8px 16px;
+    background: rgba(36, 41, 46, 0.8);
+    margin-top: 5px;
+    color: white;
+    border-radius: 7px;
+    border: 0;
+    font-size: 14px;
+}
+#join-group:hover{
+    background: rgba(36, 41, 46, 0.33);
+}
+#btn-chat{
+    padding: 8px 16px;
+    background: rgba(36, 41, 46, 0.8);
+    margin-top: 5px;
+    color: white;
+    border-radius: 7px;
+    border: 0;
+    font-size: 14px;
+}
+#btn-chat:hover{
+    background: rgba(36, 41, 46, 0.33);
 }

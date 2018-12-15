@@ -1,10 +1,10 @@
 const mysql =require('mysql');
 
 const sql = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "anhtuan",
-    database: "app_chat"
+    host: "db4free.net",
+    user: "tuanna2",
+    password: "anhtuan9x",
+    database: "sql_free"
 });
 sql.connect(err =>{
     if(err) console.log(err);

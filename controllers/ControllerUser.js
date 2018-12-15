@@ -25,5 +25,9 @@ controllerUser.login_post = (req,res)=>{
     ()=>res.render('login',{success:0})
     );
 }
+controllerUser.logout =(req,res) =>{
+    req.session.destroy();
+    res.redirect("/");
+}
 
 module.exports = controllerUser;
