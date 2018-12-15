@@ -22,7 +22,7 @@ app.set("views","./views");
 
 new SocketManager(io);
 
-http.listen(process.env.post || 3000);
+http.listen(process.env.PORT || 3000);
 
 app.get('/',controllerChat.All);
 app.get('/friend',controllerChat.Friend);
