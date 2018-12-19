@@ -8,7 +8,7 @@ user.register = (Username,Password,Email) =>{
             if(err) reject("Dang ky khong thanh cong");
             else
                 resolve('Dang ky thanh cong');
-        })
+        });
     });
 }
 

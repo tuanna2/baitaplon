@@ -1,4 +1,4 @@
-const ChatAll = require('./classChatAll');
+const ChatGeneral = require('./classChatGeneral');
 const ChatFriend = require('./classChatFriend');
 const ChatGroup = require('./classChatGroup');
 
@@ -10,7 +10,7 @@ class SocketManager{
         io.on('connection',socket =>{
             const color = randomColor();
             socket.on('user-connect-all',name=>{
-                new ChatAll(io,socket,name,color);
+                new ChatGeneral(io,socket,name,color);
             });
             socket.on('connect-group',obj=>{
                 socket.join(obj.group);
