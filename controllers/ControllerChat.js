@@ -1,6 +1,6 @@
 const controllerChat = {};
 
-controllerChat.All = (req,res)=>{
+controllerChat.General = (req,res)=>{
     if(req.session.user){
         res.render('home',{name:req.session.user});
     }

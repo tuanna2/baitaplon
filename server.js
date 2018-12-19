@@ -23,7 +23,7 @@ app.set("views","./views");
 new SocketManager(io);
 http.listen(3000);
 
-app.get('/',controllerChat.All);
+app.get('/',controllerChat.General);
 app.get('/friend',controllerChat.Friend);
 app.get('/group',controllerChat.Group);
 
