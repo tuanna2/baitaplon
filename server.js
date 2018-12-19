@@ -21,7 +21,6 @@ app.set("view engine","ejs");
 app.set("views","./views"); 
 
 new SocketManager(io);
-
 http.listen(3000);
 
 app.get('/',controllerChat.All);
