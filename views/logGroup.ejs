@@ -31,6 +31,9 @@
     td{
       text-align: center;
     }
+    .msg{
+      text-align: left;
+    }
   </style>
   <link rel="stylesheet" href="/css/font.css">
 </head>
@@ -255,6 +258,9 @@
 
     <!-- Main content -->
     <section class="content">
+        <div class="box-header">
+            <h3 class="box-title">Tên nhóm:<%-group%></h3>
+          </div>
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
@@ -273,7 +279,7 @@
                     <%for(var i=msg.length-1;i>=0;i--){%>
                         <tr>
                           <td><%=i+1%></td>
-                          <td><%-msg[i].message%></td>
+                          <td class="msg"><%-msg[i].message%></td>
                           <td><%-msg[i].Username%></td>
                         </tr>
                       <%}%>

@@ -39,11 +39,11 @@ $(document).ready(()=>{
     return false;
     });
     socket.on('send-message-friend',obj=>{
-        $('#messages').append('<li><span class="user-color" style="color:'+obj.color+'">'+obj.name+' </span><span class="msg"> : '+obj.message+'</span></li>');
+        $('#messages').append('<li class="li-chat"><span class="user-color" style="color:'+obj.color+'">'+obj.name+' </span><span class="msg"> : '+obj.message+'</span></li>');
         $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5);
     });
     socket.on('get-msg',msg=>{
-        $('#message').removeClass('user-color');
+        $('.li-chat').remove();
         msg.forEach(element => {
             $('#messages').append('<li><span class="user-color" style="color:black">'+element.From+' </span><span class="msg"> : '+element.message+'</span></li>');
             $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5); 

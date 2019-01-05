@@ -40,8 +40,9 @@ app.get('/logout',controllerUser.logout);
 
 app.get('/admin/1',controllerAdmin.log_general);
 app.get('/admin/2',controllerAdmin.all_group);
-app.get('/admin/3',controllerAdmin.log_friend);
 app.get('/admin/2/:group',controllerAdmin.log_group);
+app.get('/admin/3',controllerAdmin.log_friend);
+app.get('/admin/3/:user',controllerAdmin.log_friend_listib)
 
 app.get('/admin/login',controllerAdmin.login_get);
 app.post('/admin/login',controllerAdmin.login_post);

@@ -264,24 +264,26 @@
               <table id="pagination" class="table table-bordered table-hover">
               <thead>
               <tr>
-                <th>Username</th>
+                <th>#</th>
+                <th>From</th>
+                <th>To</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody>
-              <%for(var i=1;i<data.length;i++){%>
+              <%for(var i=0;i<list.length;i++){%>
                 <tr>
-                  <td><%-data[i].Username%></td>
-                  <td><a onclick="return confirm('Bạn có chắc muốn xoá?')" href="./delete/<%-data[i].Username%>">Xem log</a></td>
+                  <td><%-i+1%></td>
+                  <td><%-list[i].From%></td>
+                  <td><%-list[i].To%></td>
+                  <td><a href="/admin/3?from=<%-list[i].From%>&to=<%-list[i].To%>">Xem log</a></td>
                 </tr>
               <%}%>
             </tbody>
             </table>
             </div>
             <!-- /.box-body -->
-            <!-- <div class="box-header">
-                <h3 class="box-title"><a href="../add">Add a customer</a></h3>
-              </div> -->
+
           </div>
         </div>
         <!-- /.col -->

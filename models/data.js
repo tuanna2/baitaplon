@@ -59,9 +59,9 @@ data.get_message_friend=(Username,Friend) =>{
         });
     });
 }
-data.get_list_inbox = (Username) =>{
+data.get_list_inbox = () =>{
     return new Promise((resolve,reject)=>{
-        let query = "select DISTINCT `From`,`To` from `message_friend` where `From` ='" +Username+"' or `To` = '"+ Username +"';";
+        let query = "select DISTINCT `From`,`To` from `message_friend`;";
         sql.query(query,(err,result) =>{
             if(err) reject();
             else

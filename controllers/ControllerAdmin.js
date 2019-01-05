@@ -43,13 +43,27 @@ controllerAdmin.all_group =async (req,res) =>{
 }
 controllerAdmin.log_group =async (req,res)=>{
     let msg = await data.get_message_group(req.params.group);
-    res.render('logGroup',{msg:msg});
+    res.render('logGroup',{msg:msg,group:req.params.group});
 }
 
 controllerAdmin.log_friend =async (req,res) =>{
     if(req.session.user== 'admin'){
-        let data = await user.showAll();
-        res.render('log3',{data:data});
+        if(req.query.from !== undefined || req.query.to !== undefined){
+            let msg = await data.get_message_friend(req.query.from,req.query.to);
+            res.render('logFriend',{msg:msg,From:req.query.from,To:req.query.to})
+        }
+        else{
+            let list = await data.get_list_inbox();
+            res.render('log3',{list:list});
+        }
+    }
+    else
+        res.render('loginAdmin',{success:1});
+}
+controllerAdmin.log_friend_listib = async (req,res)=>{
+    if(req.session.user== 'admin'){
+        let list = await data.get_list_inbox(req.params.user);
+        res.render('log3',{list:list,user:req.params.user});
     }
     else
         res.render('loginAdmin',{success:1});
