@@ -10,6 +10,7 @@ $(document).ready(()=>{
         }
         else{
             friend = $('#friend').val();
+            socket.emit('get-msg',friend);
             $('#friend').css('display','none');
             $('#btn-chat').css('display','none');
             $('#change-fr').css('display','inline')
@@ -40,5 +41,12 @@ $(document).ready(()=>{
     socket.on('send-message-friend',obj=>{
         $('#messages').append('<li><span class="user-color" style="color:'+obj.color+'">'+obj.name+' </span><span class="msg"> : '+obj.message+'</span></li>');
         $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5);
-    })
+    });
+    socket.on('get-msg',msg=>{
+        $('#message').removeClass('user-color');
+        msg.forEach(element => {
+            $('#messages').append('<li><span class="user-color" style="color:black">'+element.From+' </span><span class="msg"> : '+element.message+'</span></li>');
+            $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5); 
+        });
+    });
 });

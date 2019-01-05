@@ -34,5 +34,10 @@ $(document).ready(()=>{
         $('#messages').append('<li><span class="user-color" style="color:'+obj.color+'">'+obj.name+' </span><span class="msg"> : '+obj.message+'</span></li>');
         $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5);
     })
-
+    socket.on('old-msg',msg=>{
+        msg.forEach(element => {
+            $('#messages').append('<li><span class="user-color" style="color:black">'+element.Username+' </span><span class="msg"> : '+element.message+'</span></li>');
+            $('#messages').animate({scrollTop: $('#messages').prop("scrollHeight")}, 5); 
+        });
+    })
 });

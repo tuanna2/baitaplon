@@ -1,3 +1,5 @@
+const data = require('../models/data');
+
 class ChatGeneral{
     constructor(io,socket,name,color){
         this.io=io;
@@ -9,6 +11,7 @@ class ChatGeneral{
     listenInChatGeneral(){
         this.socket.on('send-message',message=>{
             this.io.emit('send-message',{name:this.name,color:this.color,message:message});
+            data.send_message_general(this.name,message);
         });
     }
 }

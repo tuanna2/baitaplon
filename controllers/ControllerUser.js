@@ -29,5 +29,15 @@ controllerUser.logout =(req,res) =>{
     req.session.destroy();
     res.redirect("/");
 }
+controllerUser.del = async(req,res)=>{
+    if(req.session.user){
+        await user.del(req.params.user);
+        res.redirect('/admin')
+    }
+    else{
+        res.redirect("/admin/login")
+    }
+};
+
 
 module.exports = controllerUser;

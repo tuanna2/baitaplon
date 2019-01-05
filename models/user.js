@@ -25,5 +25,25 @@ user.login = (Username,Password) =>{
         });
     });
 }
+user.del =(Username)=>{
+    return new Promise((resolve,reject)=>{
+        let query ="delete from `users` where Username='"+Username+"';"
+        sql.query(query,err=>{
+            if(err) reject();
+            else
+                resolve();
+        });
+    })
+}
+user.showAll =()=>{
+    return new Promise((resolve,reject) => {
+        let query="select * from `users`";
+        sql.query(query,(err,result) => {
+            if(err) reject();
+            else
+                resolve(result);
+        });
+    });
+}
 
 module.exports = user;
