@@ -18,4 +18,4 @@ app.set("views","./views");
 app.use(routes);
 
 new SocketManager(io);
-http.listen(3000);
+http.listen(process.env.PORT || 3000);
