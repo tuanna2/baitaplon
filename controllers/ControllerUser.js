@@ -30,13 +30,8 @@ controllerUser.logout =(req,res) =>{
     res.redirect("/");
 }
 controllerUser.del = async(req,res)=>{
-    if(req.session.user){
-        await user.del(req.params.user);
-        res.redirect('/admin')
-    }
-    else{
-        res.redirect("/admin/login")
-    }
+    await user.del(req.params.user);
+    res.redirect('/admin')
 };
 
 
